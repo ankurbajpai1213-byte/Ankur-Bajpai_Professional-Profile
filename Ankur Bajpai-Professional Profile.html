@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankur Bajpai - Professional Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue-dark: #0D47A1;
+            --blue-medium: #1976D2;
+            --blue-light: #42A5F5;
+            --blue-sky: #81D4FA;
+            --blue-pale: #E3F2FD;
+            --white: #FFFFFF;
+            --text-dark: #1A237E;
+            --text-medium: #283593;
+            --text-muted: #5C6BC0;
+            --bg-overlay: rgba(255, 255, 255, 0.95);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #FFFFFF 0%, #E3F2FD 100%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background animation */
+        body::before {
+            content: '';
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(25, 118, 210, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(66, 165, 245, 0.08) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-5%, -5%) rotate(5deg); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(227, 242, 253, 0.8));
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--blue-light);
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease-out;
+            box-shadow: 0 10px 40px rgba(25, 118, 210, 0.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-medium);
+            margin-bottom: 15px;
+            margin-top: 25px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: var(--blue-medium);
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        /* Executive Profile Section */
+        .section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-bottom: 40px;
+            border: 2px solid var(--blue-pale);
+            backdrop-filter: blur(5px);
+            animation: fadeInUp 0.8s ease-out;
+            animation-delay: 0.2s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+            box-shadow: 0 5px 25px rgba(25, 118, 210, 0.08);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--blue-dark);
+            margin-bottom: 30px;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-medium), var(--blue-light));
+        }
+
+        .profile-content {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .profile-highlight {
+            color: var(--blue-medium);
+            font-weight: 500;
+        }
+
+        /* Career Timeline - Modern Card Layout */
+        .timeline {
+            position: relative;
+            padding: 20px 20px 40px;
+            margin-top: 20px;
+        }
+
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 35px 40px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(227, 242, 253, 0.8));
+            border-radius: 20px;
+            border: 2px solid var(--blue-light);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: left;
+            margin-bottom: 0;
+            box-shadow: 0 5px 20px rgba(25, 118, 210, 0.1);
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(15px) scale(1.02);
+            background: linear-gradient(135deg, rgba(227, 242, 253, 0.95), rgba(255, 255, 255, 0.9));
+            border-color: var(--blue-medium);
+            box-shadow: 0 15px 40px rgba(25, 118, 210, 0.2);
+        }
+
+        .timeline-year {
+            font-size: 1.1rem;
+            color: var(--blue-dark);
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, var(--blue-pale), rgba(255, 255, 255, 0.8));
+            border-radius: 12px;
+            border: 2px solid var(--blue-light);
+            text-align: center;
+            align-self: start;
+        }
+
+        .timeline-content {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .timeline-subtitle {
+            font-size: 1.05rem;
+            color: var(--blue-medium);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            color: var(--text-medium);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* Highlight first item (most recent) */
+        .timeline-item:first-child {
+            border: 3px solid var(--blue-medium);
+            background: linear-gradient(135deg, rgba(227, 242, 253, 0.95), rgba(255, 255, 255, 0.95));
+        }
+
+        .deep-dive-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, var(--blue-medium), var(--blue-light));
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            pointer-events: auto;
+            position: relative;
+            z-index: 100;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .deep-dive-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(25, 118, 210, 0.3);
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue-medium));
+        }
+
+        .deep-dive-btn:active {
+            transform: translateY(0);
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .deep-dive-btn:hover {
+                transform: none;
+            }
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: rgba(227, 242, 253, 0.6);
+            border-radius: 30px;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--blue-light);
+        }
+
+        .contact-item:hover {
+            background: var(--blue-pale);
+            transform: translateY(-2px);
+            border-color: var(--blue-medium);
+            box-shadow: 0 4px 15px rgba(25, 118, 210, 0.15);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            border: 3px solid var(--blue-medium);
+            animation: slideIn 0.4s ease;
+            box-shadow: 0 20px 60px rgba(13, 71, 161, 0.2);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 1.5rem;
+            color: var(--blue-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(25, 118, 210, 0.1);
+            border-radius: 50%;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+            background: rgba(25, 118, 210, 0.2);
+            color: var(--blue-medium);
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .close-btn:hover {
+                transform: none;
+            }
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--blue-dark);
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--blue-medium);
+            padding-bottom: 15px;
+        }
+
+        .role-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: var(--white);
+            border-radius: 15px;
+            border-left: 4px solid var(--blue-light);
+            border: 2px solid var(--blue-pale);
+            border-left: 4px solid var(--blue-light);
+        }
+
+        .role-title {
+            font-size: 1.8rem;
+            color: var(--blue-dark);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .role-content {
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .role-content p {
+            margin-bottom: 15px;
+        }
+
+        .highlight-box {
+            background: rgba(129, 212, 250, 0.15);
+            border-left: 4px solid var(--blue-medium);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box h4 {
+            color: var(--blue-dark);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .highlight-box p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-box strong {
+            color: var(--blue-dark);
+        }
+
+        .layer-btn {
+            display: inline-block;
+            margin: 10px 10px 10px 0;
+            padding: 12px 28px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--blue-dark);
+            border: 2px solid var(--blue-medium);
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .layer-btn:hover {
+            background: var(--blue-medium);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(25, 118, 210, 0.25);
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .layer-btn:hover {
+                transform: none;
+                background: rgba(255, 255, 255, 0.9);
+                color: var(--blue-dark);
+            }
+            
+            .layer-btn:active {
+                background: var(--blue-medium);
+                color: var(--white);
+            }
+        }
+
+        .layer-content {
+            display: none;
+            margin-top: 20px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            border: 2px solid var(--blue-light);
+        }
+
+        .layer-content.active {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 50px 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                letter-spacing: -1px;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+                margin-top: 20px;
+            }
+
+            .hero .tagline {
+                font-size: 0.75rem;
+                letter-spacing: 1px;
+                white-space: normal;
+            }
+
+            .section {
+                padding: 30px 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .profile-content {
+                font-size: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .contact-item {
+                width: 100%;
+                justify-content: center;
+                font-size: 0.9rem;
+            }
+
+            .timeline {
+                padding: 20px 10px 30px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 25px 20px;
+                transform: none !important;
+            }
+
+            .timeline-item:hover {
+                transform: translateX(5px) !important;
+            }
+
+            .timeline-year {
+                font-size: 1rem;
+                padding: 10px 15px;
+            }
+
+            .timeline-title {
+                font-size: 1.2rem;
+            }
+
+            .timeline-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .timeline-desc {
+                font-size: 0.9rem;
+            }
+
+            .deep-dive-btn {
+                font-size: 0.85rem;
+                padding: 10px 20px;
+                width: 100%;
+            }
+
+            /* Modal responsive */
+            .modal {
+                padding: 10px;
+            }
+
+            .modal-content {
+                margin: 10px;
+                padding: 30px 20px;
+                max-width: 100%;
+            }
+
+            .modal-title {
+                font-size: 1.8rem;
+                padding-right: 40px;
+            }
+
+            .close-btn {
+                top: 15px;
+                right: 15px;
+                width: 28px;
+                height: 28px;
+                font-size: 1.3rem;
+            }
+
+            .role-section {
+                padding: 20px 15px;
+            }
+
+            .role-title {
+                font-size: 1.4rem;
+            }
+
+            .role-content {
+                font-size: 0.95rem;
+            }
+
+            .layer-btn {
+                font-size: 0.85rem;
+                padding: 10px 20px;
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .layer-content {
+                padding: 20px 15px;
+            }
+
+            .layer-content h3 {
+                font-size: 1.3rem !important;
+            }
+
+            .highlight-box {
+                padding: 15px;
+                margin: 15px 0;
+            }
+
+            .highlight-box h4 {
+                font-size: 1.05rem;
+            }
+
+            .highlight-box p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Extra small mobile devices */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .hero .tagline {
+                font-size: 0.7rem;
+            }
+
+            .section-title {
+                font-size: 1.7rem;
+            }
+
+            .timeline-item {
+                padding: 20px 15px;
+            }
+
+            .modal-content {
+                padding: 25px 15px;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>ANKUR BAJPAI</h1>
+            <div class="subtitle">Bridging Maritime Expertise & SaaS Innovation</div>
+            <div class="tagline">Product Implementation | Client Success | Domain SME</div>
+        </div>
+
+        <!-- Executive Profile -->
+        <div class="section">
+            <h2 class="section-title">EXECUTIVE PROFILE</h2>
+            <p class="profile-content">
+                <span class="profile-highlight">Former Merchant Navy Officer</span> transitioned into maritime technology leadership. Proven expertise in leading end-to-end ERP onboarding, driving user adoption, and optimizing technical support functions.
+            </p>
+            <p class="profile-content">
+                Sitting at the <span class="profile-highlight">intersection of clients, product, and engineering</span> to deliver scalable maritime SaaS solutions with 10+ years of combined domain depth.
+            </p>
+
+            <div class="contact-info">
+                <a href="mailto:ankurbajpai1213@gmail.com" class="contact-item">
+                    📧 ankurbajpai1213@gmail.com
+                </a>
+                <a href="tel:+971502405348" class="contact-item">
+                    📱 +971 50 240 5348
+                </a>
+                <a href="https://www.linkedin.com/in/bajpai-ankur/" target="_blank" class="contact-item">
+                    💼 LinkedIn Profile
+                </a>
+                <div class="contact-item">
+                    📍 Dubai, UAE
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Path -->
+        <div class="section">
+            <h2 class="section-title">CAREER PATH</h2>
+            <div class="timeline">
+                <div class="timeline-container">
+                    <!-- JiBe ERP -->
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023 - 2025</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">JiBe ERP (SaaS)</div>
+                            <div class="timeline-subtitle">Technical Support & Implementation Manager</div>
+                            <div class="timeline-desc">
+                                The bridge between sea and software - leading ERP implementations, managing support teams, and driving product decisions as a domain SME.
+                            </div>
+                            <button class="deep-dive-btn" onclick="openModalFromButton()" style="margin-top: 15px;">🔍 Deep Dive into JiBe Experience</button>
+                        </div>
+                    </div>
+
+                    <!-- Petronet LNG -->
+                    <div class="timeline-item">
+                        <div class="timeline-year">2019 - 2023</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Petronet LNG Limited</div>
+                            <div class="timeline-subtitle">Deputy Manager – Port Operations</div>
+                            <div class="timeline-desc">
+                                Handling India's largest LNG terminal with responsibilities spanning marine operations, vessel coordination, and safety inspections.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Merchant Navy -->
+                    <div class="timeline-item">
+                        <div class="timeline-year">2013 - 2019</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Merchant Navy Officer</div>
+                            <div class="timeline-subtitle">Marine Deck Officer</div>
+                            <div class="timeline-desc">
+                                Managing shipboard safety, cargo operations, and navigation at sea. Handled LPG and cargo vessels with focus on operational excellence and compliance.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JiBe Deep Dive Modal -->
+    <div id="jibeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title">JiBe ERP - Deep Dive Experience</h2>
+
+            <div class="role-section">
+                <div class="role-title">Overview: Three Roles, One Mission</div>
+                <div class="role-content">
+                    <p>Under the title of Technical Support Manager, I effectively handled three critical responsibilities that positioned me at the intersection of clients, product, and technical teams:</p>
+                    <ul style="list-style-position: inside; margin-left: 20px;">
+                        <li style="margin-bottom: 10px;"><strong>Support Manager</strong> - Transforming support from reactive to strategic</li>
+                        <li style="margin-bottom: 10px;"><strong>Implementation Manager</strong> - Ensuring real operational adoption, not just configuration</li>
+                        <li style="margin-bottom: 10px;"><strong>Domain SME</strong> - Bridging maritime reality with product design (primary role)</li>
+                    </ul>
+                    <p style="margin-top: 15px; color: var(--blue-medium);">Around 60-70% of my role involved traveling and direct client interaction, representing JiBe at customer offices.</p>
+                </div>
+            </div>
+
+            <!-- Layer 1: Support Manager -->
+            <button class="layer-btn" onclick="toggleLayer('support')">📊 Support Manager Role - Transform Support Operations</button>
+            <div id="support" class="layer-content">
+                <h3 style="color: var(--blue-dark); margin-bottom: 20px; font-size: 1.5rem;">Transforming Support from Disruption to Stabilization</h3>
+                
+                <div class="highlight-box">
+                    <h4>Challenge #1: Poor Quality Tickets</h4>
+                    <p><strong>Problem:</strong> Support agents lacked technical background, converting operational issues into confusing technical tickets that delayed fixes.</p>
+                    <p><strong>Solution:</strong> Trained team on modules, 5-whys investigation, and symptom vs. root cause differentiation.</p>
+                    <p><strong>Impact:</strong> Improved SLA performance and developer efficiency by isolating knowledge gaps from real technical problems.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Challenge #2: Prioritization by Noise</h4>
+                    <p><strong>Problem:</strong> Product managers lacked maritime domain depth, so bug priority was driven by loudest customer, not operational risk.</p>
+                    <p><strong>Solution:</strong> Defined priority based on operational impact and compliance requirements; supported release planning.</p>
+                    <p><strong>Impact:</strong> Increased customer trust through realistic timelines and transparent communication.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Challenge #3: No Dedicated Support Development</h4>
+                    <p><strong>Problem:</strong> Developers pulled into minor issues, affecting feature delivery.</p>
+                    <p><strong>Solution:</strong> Trained agents to handle basic scripts; led root cause analysis for critical issues.</p>
+                    <p><strong>Impact:</strong> Protected development bandwidth and improved resolution quality.</p>
+                </div>
+
+                <button class="layer-btn" onclick="toggleLayer('support-story')" style="margin-top: 20px;">💡 Real Story: Technical Problem Solving</button>
+                <div id="support-story" class="layer-content">
+                    <p style="color: var(--text-dark); line-height: 1.8;">
+                        <strong style="color: var(--blue-dark);">The Scenario:</strong> Technical manager, developer, and product manager couldn't solve an urgent bug. The module was face-lifted over an older version, creating a legacy data dependency issue.
+                    </p>
+                    <p style="color: var(--text-dark); line-height: 1.8; margin-top: 15px;">
+                        <strong style="color: var(--blue-dark);">The Problem:</strong> Backend table contained data not required in new version but needed for legacy data. Removing the column would break historical queries; keeping it caused query failures due to missing data in new records.
+                    </p>
+                    <p style="color: var(--text-dark); line-height: 1.8; margin-top: 15px;">
+                        <strong style="color: var(--blue-dark);">My Solution:</strong> "Archive historic tables and direct legacy queries there. Create new table for current queries and remove problematic column."
+                    </p>
+                    <p style="color: var(--blue-medium); margin-top: 15px; font-weight: 600;">
+                        Result: Team was surprised by my technical acumen - demonstrating how maritime operations background + system thinking enabled unique problem-solving approaches.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Layer 2: Implementation Manager -->
+            <button class="layer-btn" onclick="toggleLayer('implementation')">🚀 Implementation Manager Role - Drive Real Adoption</button>
+            <div id="implementation" class="layer-content">
+                <h3 style="color: var(--blue-dark); margin-bottom: 20px; font-size: 1.5rem;">Ensuring Operational Reality, Not Just Configuration</h3>
+                
+                <div class="highlight-box">
+                    <h4>Challenge: Legacy Process Replication</h4>
+                    <p><strong>Problem:</strong> Clients wanted system to behave exactly like old system/manual processes.</p>
+                    <p><strong>Solution:</strong> Understood intent behind process, aligned with standard workflows while keeping controlled deviations.</p>
+                    <p><strong>Impact:</strong> Protected product integrity while meeting operational needs.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Challenge: Scope Creep During UAT</h4>
+                    <p><strong>Problem:</strong> New stakeholders brought additional expectations during testing, delaying go-live.</p>
+                    <p><strong>Solution:</strong> Froze scope for current phase, explained timeline impact clearly, pushed non-critical changes to post go-live.</p>
+                    <p><strong>Impact:</strong> Stable, predictable implementations with controlled timelines.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Challenge: Data Quality Issues</h4>
+                    <p><strong>Problem:</strong> "System bugs" were actually incomplete or inconsistent master data.</p>
+                    <p><strong>Solution:</strong> Early data validation, real operational scenario walkthroughs, clear data ownership assignment.</p>
+                    <p><strong>Impact:</strong> Reduced false bug reports and improved system reliability.</p>
+                </div>
+            </div>
+
+            <!-- Layer 3: Domain SME -->
+            <button class="layer-btn" onclick="toggleLayer('sme')">🧭 Domain SME Role - Bridge Maritime & Product</button>
+            <div id="sme" class="layer-content">
+                <h3 style="color: var(--blue-dark); margin-bottom: 20px; font-size: 1.5rem;">Aligning Maritime Reality with Product Design</h3>
+                
+                <div class="highlight-box">
+                    <h4>Challenge: Translation Between Operational and Technical Teams</h4>
+                    <p><strong>Problem:</strong> Clients described issues in operational language while product team needed technical clarity, creating miscommunication.</p>
+                    <p><strong>Solution:</strong> Acted as bridge to understand client intent and translate into clear system workflows, user stories, and acceptance criteria.</p>
+                    <p><strong>Impact:</strong> Enabled accurate requirement capture and eliminated costly misunderstandings during development.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Challenge: Balancing Client Requests with Product Integrity</h4>
+                    <p><strong>Problem:</strong> Change requests often looked operationally sound but could break standard workflows or create long-term support issues.</p>
+                    <p><strong>Solution:</strong> Reviewed all requests for impact on product scalability; pushed back when needed while offering alternative solutions.</p>
+                    <p><strong>Impact:</strong> Protected product integrity while maintaining client satisfaction and avoiding technical debt.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Challenge: Ensuring Maritime Operational Reality</h4>
+                    <p><strong>Problem:</strong> Product decisions were being made without full operational context of how vessels and ports actually operate.</p>
+                    <p><strong>Solution:</strong> Brought maritime domain expertise to product discussions, ensuring features aligned with real-world workflows.</p>
+                    <p><strong>Impact:</strong> System remained usable, scalable, and grounded in maritime reality rather than theoretical workflows.</p>
+                </div>
+            </div>
+
+            <!-- Key Achievements Summary -->
+            <div class="role-section" style="margin-top: 40px; border-left-color: var(--blue-medium);">
+                <div class="role-title">Key Achievements & Impact</div>
+                <div class="role-content">
+                    <ul style="list-style-position: inside; margin-left: 20px;">
+                        <li style="margin-bottom: 12px;">✅ <strong>Increased customer satisfaction</strong> through structured onboarding and responsive support</li>
+                        <li style="margin-bottom: 12px;">✅ <strong>Significant increase in user adoption</strong> through role-based training programs</li>
+                        <li style="margin-bottom: 12px;">✅ <strong>Improved SLA performance</strong> by transforming support ticket quality</li>
+                        <li style="margin-bottom: 12px;">✅ <strong>Protected development bandwidth</strong> through strategic support function design</li>
+                        <li style="margin-bottom: 12px;">✅ <strong>Established client feedback loops</strong> contributing to product improvements and feature releases</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            console.log('openModal called');
+            const modal = document.getElementById('jibeModal');
+            console.log('Modal element:', modal);
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                console.log('Modal opened successfully');
+            } else {
+                console.error('Modal not found!');
+            }
+        }
+
+        function openModalFromButton() {
+            console.log('Button clicked!');
+            openModal();
+            return false;
+        }
+
+        function closeModal() {
+            document.getElementById('jibeModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            // Close all layers when modal closes
+            const layers = document.querySelectorAll('.layer-content');
+            layers.forEach(layer => layer.classList.remove('active'));
+        }
+
+        function toggleLayer(layerId) {
+            const layer = document.getElementById(layerId);
+            if (!layer) {
+                console.error('Layer not found:', layerId);
+                return;
+            }
+            
+            const isActive = layer.classList.contains('active');
+            
+            // Close all layers
+            const allLayers = document.querySelectorAll('.layer-content');
+            allLayers.forEach(l => l.classList.remove('active'));
+            
+            // Open clicked layer if it wasn't active
+            if (!isActive) {
+                layer.classList.add('active');
+                layer.style.display = 'block';
+                // Smooth scroll to the layer
+                setTimeout(() => {
+                    layer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('jibeModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
